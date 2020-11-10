@@ -1,0 +1,52 @@
+body{
+    height: 618px; 
+ }
+ 
+ .tic-tac-toe-intro-container{
+    margin-left: 25%;
+    background-color: skyblue;
+    width: 50%;
+    height: 100%;
+ }
+
+.navigator a{
+    margin-top: 4%;
+    margin-left: 2%;
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+}
+
+.game-head{
+    text-align: center;
+    color: blue;
+}
+
+.players{
+    width: 100%;
+    margin-top: 20%;
+    text-align: center;
+    display: block;
+}
+
+.players ul{
+    list-style-type: none;
+}
+
+.players ul li button{
+    padding: 2%;
+    background-color: blue;
+    border: 1px solid blue;
+    color: white;
+}
+
+.icon{
+    text-align: center;
+    margin-top: 20%;
+    color: white;
+}
+
+#game-icon{
+    font-size: 50px;
+    color: blue;
+}
