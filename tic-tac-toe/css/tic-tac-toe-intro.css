@@ -10,7 +10,7 @@ body{
  }
 
 .navigator a{
-    margin-top: 4%;
+    margin-top: 3%;
     margin-left: 2%;
     text-decoration: none;
     color: white;
@@ -24,7 +24,7 @@ body{
 
 .players{
     width: 100%;
-    margin-top: 20%;
+    margin-top: 10%;
     text-align: center;
     display: block;
 }
@@ -40,9 +40,23 @@ body{
     color: white;
 }
 
+.players ul li div a{
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4%;
+}
+
+.single-player-characters{
+    display: none;
+}
+
+.two-players-characters{
+    display: none;
+}
+
 .icon{
     text-align: center;
-    margin-top: 20%;
+    margin-top: 10%;
     color: white;
 }
 

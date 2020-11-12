@@ -19,9 +19,25 @@
 
         <div class="players">
             <ul>
-                <a href="game-on.html"><li><button>Single Player</button></li></a>
-                <br>
-                <a href="game-on.html"><li><button>Multiple Players</button></li></a>
+                <li>
+                    <div class="single-player-items">
+                        <button id="single-player" onclick="hideTwoPlayersItems()">Single Player</button>
+                        <div class="single-player-characters" >
+                            <p>Please Select Your Character</p>
+                            <a href="game-on.html" class="player-x" onclick="x()"><b>X</b></a>
+                            <a href="game-on.html" class="player-o"><b>o</b></a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="two-players-items">
+                        <button id="two-players" onclick="hideSinglePlayerItems()">Two Players</button>
+                        <div class="two-players-characters">
+                            <p>Please Select Your Character</p>
+                            <a href="game-on.html" class="player-x" onclick="x()"><b>X</b></a>
+                            <a href="game-on.html" class="player-o"><b>o</b></a>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
 
@@ -30,5 +46,7 @@
             <p><b>JT-SOLVE IT</b></p>
         </div>
     </div>
+    <script src="./javascript/tic-tac-toe.js"></script>
+    <script src="./javascript/game-on.js"></script>
 </body>
 </html>
