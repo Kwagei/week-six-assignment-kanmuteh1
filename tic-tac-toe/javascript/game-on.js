@@ -1,33 +1,43 @@
  // selecting player character
-function playerSelection(){
-   var playerX = document.querySelectorAll("#player-x");
-   var playerO = document.querySelectorAll("#player-o");
+function playerCatSelection(select){
+   var players = document.getElementById(select.target.id);
 }
 
-var getPlayingSpot = document.querySelectorAll(".playing-spot");
-Array.from(getPlayingSpot).forEach(function(getPlayingSpot, index , array){
-   getPlayingSpot.addEventListener("click", function(spot){
-      getPlayingSpot.innerHTML = "o"
-      // array.innerHTML = "o";
-      computer();
-   }) 
-})
+var check_boxes = ["0","1","2","3","4","5","6","7","8"];
 
+function humanPlay(human){
+   var humanId = document.getElementById(human.target.id);
+   if(humanId.innerHTML === ""){
+      humanId.innerHTML = "o";
+      check_boxes.forEach(function(remove){
+         if(humanId.id === remove){
+            var a = check_boxes.splice(remove,1);
+            console.log(a);
+            // console.log("human",check_boxes)
+         }
+      })
+   }
+   generateRandomNum()
+}
 
 function generateRandomNum(){
-   var computerSelection = Math.floor(Math.random()*8)+0;
-   return computerSelection;
-}
-function computer(){
-   generateRandomNum()
-   if (getPlayingSpot[generateRandomNum()].innerHTML === ""){
-      getPlayingSpot[generateRandomNum()].innerHTML = "x";
+   var computer_selection = Math.floor(Math.random()*8);
+   computer_selection = computer_selection.toString();
+   var computer_player = document.getElementById(computer_selection);
+   if(computer_player.innerHTML === ""){
+      computer_player.innerHTML = "x";
+
    }
 
-   // else if(getPlayingSpot[generateRandomNum()].innerHTML === "o"){
-   //    getPlayingSpot[generateRandomNum()].innerHTML === "o"
-   //   generateRandomNum()
-   //    getPlayingSpot[computerSelection].innerHTML === ""
-   //    getPlayingSpot[computerSelection].innerHTML === "x"
-   // }
+   else{
+      generateRandomNum();
+      check_boxes.forEach(function(remove){
+         if(computer_player.id === remove){
+            var b = check_boxes.splice(remove,1);
+            console.log(b)
+            // console.log("computer",check_boxes)
+         }
+      })
+      return
+   }
 }
