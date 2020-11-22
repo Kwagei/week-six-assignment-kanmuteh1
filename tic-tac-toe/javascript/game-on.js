@@ -10,21 +10,17 @@
    else if(human_name === "o"){
       computer_name = "x";
    }
-  
 }
-
 
 var players_scores = document.querySelectorAll(".players")
 
 var score;
-
 var check_boxes = ["0","1","2","3","4","5","6","7","8"];
 
 function humanPlay(human){
    var humanId = document.getElementById(human.target.id);
    if(humanId.innerHTML === ""){
-      human_name = humanId.innerHTML;
-      console.log(human_name)
+      humanId.innerHTML = human_name;
       var items_index1 = check_boxes.indexOf(humanId.id).toString();
       check_boxes.splice(items_index1,1);
    }
@@ -38,8 +34,7 @@ function generateRandomNum(){
    computer_selection = computer_selection.toString();
    var computer_player = document.getElementById(computer_selection);          
    if(computer_player.innerHTML === ""){
-      computer_name = computer_player.innerHTML;
-      console.log(computer_name)
+      computer_player.innerHTML = computer_name;
       items_index = check_boxes.indexOf(computer_player.id);
       check_boxes.splice(items_index,1);
 
