@@ -4,30 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tic-tac-toe</title>
-    <link rel="stylesheet" href="./fontawesome-free-5.15.1-web/css/all.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
 </head>
 <body onload="move()">
-    <div class="container">
+    <!-- first page of tic-tac-toe -->
+    <div class="first-page">
         <div class="img-tic-tac-toe">
             <img src="./image/tic-tac-toe.jpg" alt="">
+        </div>
+        <div class="items-wrapper">
+            <div class="icon">
+                <i class="fas fa-gamepad" id="game-icon"></i>
+                <p><b>JT-SOLVE IT</b></p>
+            </div>
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
+            <div id="my-progess-percentage">
+            </div>
+        </div>
+        <br>
+        <div id="move-to-next-page">
+                <button  id="next-page-btn" onclick="moveToNextPage()">Continue</button>
+        </div> 
+    </div>
+    <!-- second page of tic-tac-toe -->
+    <div class="tic-tac-toe-intro-container">
+        <div class="game-head">
+            <h1>TIC TAC TOE</h1>
+        </div>
+
+        <div class="players">
+            <ul>
+                <li>
+                    <div class="single-player-items">
+                        <button id="single-player" onclick="hideTwoPlayersItems()">Single Player</button>
+                        <div class="single-player-characters" >
+                            <p>Please Select Your Character</p>
+                            <button onclick="playerCatSelection(event)" id = "x1">X</button>
+                            <button onclick="playerCatSelection(event)" id = "o1">o</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="two-players-items">
+                        <button id="two-players" onclick="hideSinglePlayerItems()">Two Players</button>
+                        <div class="two-players-characters">
+                            <p>Please Select Your Character</p>
+                            <button onclick="playerCatSelection(event)" id = "x1">X</button>
+                            <button onclick="playerCatSelection(event)" id = "o1">o</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="icon">
             <i class="fas fa-gamepad" id="game-icon"></i>
             <p><b>JT-SOLVE IT</b></p>
         </div>
-        <div id="myProgress">
-            <div id="myBar"></div>
-        </div>
-        <div id="my-progess-percentage">
-        </div>
-        <br>
-        <div id="move-to-next-page">
-            <a href="tic-tac-toe-intro.html">
-                <button  id="next-page-btn">Continue</button>
-            </a>
-        </div> 
     </div>
-    <script src="./javascript/script.js"></script>
+    <!-- third page of tic-tac-toe -->
+    <div class="game-on-container">
+        <div class="players-scores">
+            <ul>
+                <li class="score"><b>SCORE</b></li>
+                <li class="players-sco">Player 1:</li>
+                <br>
+                <li class="players-sco">Player 2:</li>
+            </ul>
+        </div>
+        <div class="game-on-head">
+            <h1>GAME ON</h1>
+        </div>
+
+        <div class="tic-tac-toe-grid">
+            <div class="playing-spot" onclick="humanPlay(event)" id="0"></div>
+            <div class="playing-spot" onclick="humanPlay(event)" id="1"></div>
+            <div class="playing-spot" onclick="humanPlay(event)" id="2"></div>
+            <div class="playing-spot" onclick="humanPlay(event)" id="3"></div>
+            <div class="playing-spot" onclick="humanPlay(event)" id="4"></div>
+            <div class="playing-spot" onclick="humanPlay(event)" id="5"></div>
+            <div class="playing-spot" onclick="humanPlay(event)" id="6"></div>
+            <div class="playing-spot" onclick="humanPlay(event)" id="7"></div>
+            <div class="playing-spot" onclick="humanPlay(event)" id="8"></div>
+        </div>
+
+        <div class="restart">
+            <button id="start-over" onclick="resetAll()">Reset All</button>
+        </div>
+    </div>
+    <script src="./javascript/tic-tac-toe.js"></script>
 </body>
 </html>
