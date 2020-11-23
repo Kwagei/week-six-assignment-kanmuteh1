@@ -55,10 +55,10 @@ function hideSinglePlayerItems(){
 }
 //  game-on js
 
- // selecting player character
- var human_name;
- var computer_name;
- function playerCatSelection(select){
+// selecting player character
+var human_name;
+var computer_name;
+function playerCatSelection(select){
    human_name = document.getElementById(select.target.id).innerHTML;
    if(human_name === "X"){
       computer_name = "O";
@@ -71,9 +71,10 @@ function hideSinglePlayerItems(){
    game_on.style.display = "block";
 }
 
-var players_scores = document.querySelectorAll(".players")
-
-var score;
+var score = 0;
+var display_score = document.querySelectorAll(".player-sco");
+display_score[0].innerHTML +=  score;
+display_score[1].innerHTML +=  score;
 var check_boxes = ["0","1","2","3","4","5","6","7","8"];
 
 function humanPlay(human){
@@ -108,12 +109,22 @@ function generateRandomNum(){
    humanResults();
 }
 
+function playAgain(){
+   var reset = document.querySelectorAll(".playing-spot");
+   for (var remove = 0; remove <= reset.length; remove++){
+      reset[remove].innerHTML = "";
+      check_boxes = ["0","1","2","3","4","5","6","7","8"]
+   }
+}
+
 function resetAll(){
    var reset = document.querySelectorAll(".playing-spot");
    for (var remove = 0; remove <= reset.length; remove++){
       reset[remove].innerHTML = "";
       check_boxes = ["0","1","2","3","4","5","6","7","8"]
    }
+   display_score[0].innerHTML +=  score;
+   display_score[1].innerHTML +=  score;
 }
 
 function humanResults(){
@@ -129,78 +140,95 @@ function humanResults(){
    if(a.innerHTML === computer_name && b.innerHTML === computer_name && c.innerHTML === computer_name){
       alert("computer win")
       score++;
+      display_score[1].innerHTML +=  score;
    }
 
    else if(a.innerHTML === human_name && b.innerHTML === human_name && c.innerHTML === human_name){
       alert("you win")
       score++;
+      display_score[0].innerHTML +=  score;
    }
 
    else if(d.innerHTML === computer_name && e.innerHTML === computer_name && f.innerHTML === computer_name){
       alert("computer win")
+      score++;
+      display_score[1].innerHTML +=  score;
    }
 
    else if(d.innerHTML === human_name && e.innerHTML === human_name && f.innerHTML === human_name){
       alert("you win")
       score++;
+      display_score[0].innerHTML +=  score;
    }
 
    else if(g.innerHTML === computer_name && h.innerHTML === computer_name && i.innerHTML === computer_name){
-      alert("you win")
+      alert("computer win")
       score++;
+      display_score[1].innerHTML +=  score;
    }
 
    else if(g.innerHTML === human_name && h.innerHTML === human_name && i.innerHTML === human_name){
       alert("you win")
       score++;
+      display_score[0].innerHTML +=  score;
    }
 
    else if(a.innerHTML === computer_name && d.innerHTML === computer_name && g.innerHTML === computer_name){
       alert("computer win")
       score++;
+      display_score[1].innerHTML +=  score;
    }
 
    else if(a.innerHTML === human_name && d.innerHTML === human_name && g.innerHTML === human_name){
       alert("you win")
       score++;
+      display_score[0].innerHTML +=  score;
    }
 
    else if(b.innerHTML === computer_name && e.innerHTML === computer_name && h.innerHTML === computer_name){
       alert("computer win")
       score++;
+      display_score[1].innerHTML +=  score;
    }
 
    else if(b.innerHTML === human_name && e.innerHTML === human_name && h.innerHTML === human_name){
       alert("you win")
       score++;
+      display_score[0].innerHTML +=  score;
    }
 
    else if(c.innerHTML === computer_name && f.innerHTML === computer_name && i.innerHTML === computer_name){
       alert("computer win")
       score++;
+      display_score[1].innerHTML +=  score;
    }
 
    else if(c.innerHTML === human_name && f.innerHTML === human_name && i.innerHTML === human_name){
       alert("you win")
       score++;
+      display_score[0].innerHTML +=  score;
    }
 
    else if(c.innerHTML === computer_name && e.innerHTML === computer_name && g.innerHTML === computer_name){
       alert("computer win")
+      display_score[1].innerHTML +=  score;
    }
 
    else if(c.innerHTML === human_name && e.innerHTML === human_name && g.innerHTML === human_name){
       alert("you win")
       score++;
+      display_score[0].innerHTML +=  score;
    }
 
    else if(a.innerHTML === computer_name && e.innerHTML === computer_name && i.innerHTML === computer_name){
       alert("computer win")
       score++;
+      display_score[1].innerHTML +=  score;
    }
 
    else if(a.innerHTML === human_name && e.innerHTML === human_name && i.innerHTML === human_name){
       alert("you win")
       score++;
+      display_score[0].innerHTML +=  score;
    }
 }
