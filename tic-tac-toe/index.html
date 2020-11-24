@@ -39,26 +39,50 @@
             <ul>
                 <li>
                     <div class="single-player-items">
-                        <button id="single-player" onclick="hideTwoPlayersItems()">Single Player</button>
+                        <button id="single-player" onclick="hideTwoPlayersItems()"><b>Single Player</b></button>
                         <div class="single-player-characters" >
                             <p>Please Select Your Character</p>
-                            <button onclick="playerCatSelection(event)" id = "x1">X</button>
-                            <button onclick="playerCatSelection(event)" id = "o1">o</button>
+                            <button onclick="playerCatSelection(event)" class="player-cat" id = "x1">X</button>
+                            <button onclick="playerCatSelection(event)" class="player-cat" id = "o1">O</button>
                         </div>
                     </div>
                     <br>
                     <div class="two-players-items">
-                        <button id="two-players" onclick="hideSinglePlayerItems()">Two Players</button>
+                        <button id="two-players" onclick="hideSinglePlayerItems()"><b>Two Players</b></button>
                         <div class="two-players-characters">
                             <p>Please Select Your Character</p>
-                            <button onclick="playerCatSelection(event)" id = "x1">X</button>
-                            <button onclick="playerCatSelection(event)" id = "o1">o</button>
+                            <button onclick="playerCatSelection(event)" id = "x1" class="player-cat">X</button>
+                            <button onclick="playerCatSelection(event)" id = "o1" class="player-cat">O</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="instruction-box">
+                        <button id="instruction" onclick="hideSingleAndTwoPlayers()"><b>INSTRUCTION</b></button>
+                        <div class="instructions-list">
+                            <ol>
+                                <li>
+                                    The game is played on a grid that's 3 squares by 3 squares.
+                                </li>
+                                <br>
+                                <li>
+                                    You are X, your friend (or the computer in this case) is O. Players take turns putting their marks in empty squares.
+                                </li>
+                                <br>
+                                <li>
+                                    The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
+                                </li>
+                                <br>
+                                <li>
+                                    When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
+                                </li>
+                            </ol>
+    
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="icon">
+        <div class="icon-tic-tac-toe">
             <i class="fas fa-gamepad" id="game-icon"></i>
             <p><b>JT-SOLVE IT</b></p>
         </div>
@@ -73,8 +97,11 @@
                 <li class="player-sco">COMPUTER: </li>
             </ul>
         </div>
-        <div class="game-on-head">
+        <div class="game-state">
             <h1>GAME ON</h1>
+        </div>
+
+        <div class="result-statement-area">
         </div>
 
         <div class="tic-tac-toe-grid">

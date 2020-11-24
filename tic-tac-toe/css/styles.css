@@ -1,6 +1,6 @@
 body{
-    height: 610px; 
- }
+    height: 610px;
+}
 
 /* first page of tic-tac-toe */
 .first-page{
@@ -18,7 +18,7 @@ body{
 }
 
 .img-tic-tac-toe img{
-    margin-top: 5%;
+    padding-top: 5%;
     width: 50%;
     height: 100%;
     border-radius: 100%;
@@ -88,7 +88,7 @@ body{
 
 
 .game-head{
-    padding-top: 8%;
+    padding-top: 2%;
     text-align: center;
     color: blue;
 }
@@ -111,10 +111,17 @@ body{
     color: white;
 }
 
-.players ul li div a{
-    text-decoration: none;
-    font-size: 20px;
-    margin: 4%;
+.instructions-list{
+    padding-top: 2%;
+    text-align: left;
+    display: none;
+    /* line-height: 20px; */
+}
+
+.player-cat{
+    padding: 2%;
+    width: 10%;
+    font-size: 100%;
 }
 
 .single-player-characters{
@@ -128,6 +135,11 @@ body{
 .icon{
     text-align: center;
     margin-top: 30%;
+    color: white;
+}
+.icon-tic-tac-toe{
+    text-align: center;
+    margin-top: 15%;
     color: white;
 }
 
@@ -160,8 +172,21 @@ body{
     margin-left: 4%;
 }
 
-.game-on-head{
+.game-state{
     text-align: center;
+}
+
+.result-statement-area{
+    width: 90%;
+    height: 50%;
+    background-color: gray;
+    margin-left: 4.7%;
+    text-align: center;
+    padding-top: 20%;
+    font-size: 45px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    display: none;
 }
 
 .tic-tac-toe-grid{
