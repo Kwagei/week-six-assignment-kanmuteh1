@@ -156,7 +156,7 @@ function resetAll(){
       result.style.display = "none";
       hide_all_boxes.style.display = "grid";
    }
-   score;
+   score = 0;
    
 }
 
@@ -173,7 +173,7 @@ function humanResults(){
 
    if(a.innerHTML === computer_name && b.innerHTML === computer_name && c.innerHTML === computer_name){
       score++;
-      display_score[1].innerHTML +=  score;
+      display_score[1].innerText +=  score;
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
       result.innerHTML = "COMPUTER WIN";
@@ -181,7 +181,7 @@ function humanResults(){
 
    else if(a.innerHTML === human_name && b.innerHTML === human_name && c.innerHTML === human_name){
       score++;
-      display_score[0].innerHTML +=  score;
+      display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.innerHTML = "YOU WIN";
@@ -189,7 +189,7 @@ function humanResults(){
 
    else if(d.innerHTML === computer_name && e.innerHTML === computer_name && f.innerHTML === computer_name){
       score++;
-      display_score[1].innerHTML +=  score;
+      display_score[1].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -198,7 +198,7 @@ function humanResults(){
 
    else if(d.innerHTML === human_name && e.innerHTML === human_name && f.innerHTML === human_name){
       score++;
-      display_score[0].innerHTML +=  score;
+      display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -207,7 +207,7 @@ function humanResults(){
 
    else if(g.innerHTML === computer_name && h.innerHTML === computer_name && i.innerHTML === computer_name){
       score++;
-      display_score[1].innerHTML +=  score;
+      display_score[1].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.innerHTML = "COMPUTER WIN";
@@ -215,7 +215,7 @@ function humanResults(){
 
    else if(g.innerHTML === human_name && h.innerHTML === human_name && i.innerHTML === human_name){
       score++;
-      display_score[0].innerHTML +=  score;
+      display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -224,7 +224,7 @@ function humanResults(){
 
    else if(a.innerHTML === computer_name && d.innerHTML === computer_name && g.innerHTML === computer_name){
       score++;
-      display_score[1].innerHTML +=  score;
+      display_score[1].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -233,7 +233,7 @@ function humanResults(){
 
    else if(a.innerHTML === human_name && d.innerHTML === human_name && g.innerHTML === human_name){
       score++;
-      display_score[0].innerHTML +=  score;
+      display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -242,7 +242,7 @@ function humanResults(){
 
    else if(b.innerHTML === computer_name && e.innerHTML === computer_name && h.innerHTML === computer_name){
       score++;
-      display_score[1].innerHTML +=  score;
+      display_score[1].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -251,7 +251,7 @@ function humanResults(){
 
    else if(b.innerHTML === human_name && e.innerHTML === human_name && h.innerHTML === human_name){
       score++;
-      display_score[0].innerHTML +=  score;
+      display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -260,7 +260,7 @@ function humanResults(){
 
    else if(c.innerHTML === computer_name && f.innerHTML === computer_name && i.innerHTML === computer_name){
       score++;
-      display_score[1].innerHTML +=  score;
+      display_score[1].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -269,14 +269,14 @@ function humanResults(){
 
    else if(c.innerHTML === human_name && f.innerHTML === human_name && i.innerHTML === human_name){
       score++;
-      display_score[0].innerHTML +=  score;
+      display_score[0].innerText =  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.innerHTML = "YOU WIN";
    }
 
    else if(c.innerHTML === computer_name && e.innerHTML === computer_name && g.innerHTML === computer_name){
-      display_score[1].innerHTML +=  score;
+      display_score[1].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -284,17 +284,17 @@ function humanResults(){
    }
 
    else if(c.innerHTML === human_name && e.innerHTML === human_name && g.innerHTML === human_name){
-      alert("you win")
       score++;
-      display_score[0].innerHTML +=  score;
+      display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
+      result.innerHTML = "YOU WIN";
    }
 
    else if(a.innerHTML === computer_name && e.innerHTML === computer_name && i.innerHTML === computer_name){
       score++;
-      display_score[1].innerHTML +=  score;
+      display_score[1].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
@@ -303,7 +303,7 @@ function humanResults(){
 
    else if(a.innerHTML === human_name && e.innerHTML === human_name && i.innerHTML === human_name){
       score++;
-      display_score[0].innerHTML +=  score;
+      display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";

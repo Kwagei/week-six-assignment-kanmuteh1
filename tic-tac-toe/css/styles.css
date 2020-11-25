@@ -115,7 +115,12 @@ body{
     padding-top: 2%;
     text-align: left;
     display: none;
-    /* line-height: 20px; */
+}
+
+.back{
+    padding-top: 3%;
+    width: 100%;
+    text-align: center;
 }
 
 .player-cat{
@@ -139,7 +144,7 @@ body{
 }
 .icon-tic-tac-toe{
     text-align: center;
-    margin-top: 15%;
+    margin-top: 6%;
     color: white;
 }
 
