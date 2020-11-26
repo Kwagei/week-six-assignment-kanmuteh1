@@ -117,12 +117,6 @@ body{
     display: none;
 }
 
-.back{
-    padding-top: 3%;
-    width: 100%;
-    text-align: center;
-}
-
 .player-cat{
     padding: 2%;
     width: 10%;
@@ -215,7 +209,7 @@ body{
 }
 
 .restart{
-    padding-top: 12%;
+    padding-top: 10%;
     width: 100%;
     text-align: center;
 }

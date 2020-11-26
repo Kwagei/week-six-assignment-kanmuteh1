@@ -94,10 +94,10 @@ function playerCatSelection(select){
    game_on.style.display = "block";
 }
 
-var score = 0;
+var score = parseInt(0);
 var display_score = document.querySelectorAll(".player-sco");
-display_score[0].innerHTML +=  score;
-display_score[1].innerHTML +=  score;
+display_score[0].innerText +=  score;
+display_score[1].innerText +=  score;
 var check_boxes = ["0","1","2","3","4","5","6","7","8"];
 
 function humanPlay(human){
@@ -111,7 +111,9 @@ function humanPlay(human){
       humanPlay();
    }
    humanResults();
-   generateRandomNum();
+   setTimeout(() =>{
+      generateRandomNum()
+   }, 1000);
 }
 
 function generateRandomNum(){
@@ -146,6 +148,7 @@ function playAgain(){
       check_boxes = ["0","1","2","3","4","5","6","7","8"];
       result.style.display = "none";
       hide_all_boxes.style.display = "grid";
+      game_state.innerHTML = "GAME ON";
    }
 }
 
@@ -154,9 +157,9 @@ function resetAll(){
       get_paying_spot[remove].innerHTML = "";
       check_boxes = ["0","1","2","3","4","5","6","7","8"];
       result.style.display = "none";
-      hide_all_boxes.style.display = "grid";
+      first_page.style.display = "block";
+
    }
-   score = 0;
    
 }
 
@@ -184,6 +187,7 @@ function humanResults(){
       display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
+      result.style.display = "block";
       result.innerHTML = "YOU WIN";
    }
 
@@ -210,6 +214,7 @@ function humanResults(){
       display_score[1].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
+      result.style.display = "block";
       result.innerHTML = "COMPUTER WIN";
    }
 
@@ -269,9 +274,10 @@ function humanResults(){
 
    else if(c.innerHTML === human_name && f.innerHTML === human_name && i.innerHTML === human_name){
       score++;
-      display_score[0].innerText =  score;
+      display_score[0].innerText +=  score;
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
+      result.style.display = "block";
       result.innerHTML = "YOU WIN";
    }
 
