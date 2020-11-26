@@ -1,8 +1,9 @@
+// tic-tac-toe pages variables
 var tic_tac_toe = document.querySelector(".tic-tac-toe-intro-container");
 var game_on = document.querySelector(".game-on-container");
 var first_page = document.querySelector(".first-page");
 // first page of tic-tac-toe
-// w3school progress bar modification for trial purpose
+// w3school progress bar modification for trial purpose 
 var i = 0;
 var nextPageBtn = document.getElementById("move-to-next-page")
 function move() {
@@ -32,12 +33,14 @@ function move() {
 }
 nextPageBtn.style.visibility = "visible";
 
+// continue btn fnx
 function moveToNextPage(){
    first_page.style.display = "none";
    tic_tac_toe.style.display = "block";
 }
 
 //  tic-tac-toe js
+// player characters choices
 var hideSinglePlayerItems; 
 var hideTwoPlayersItems;
 var instructions;
@@ -93,13 +96,14 @@ function playerCatSelection(select){
    tic_tac_toe.style.display = "none";
    game_on.style.display = "block";
 }
-
+// setting scores for both players
 var score = parseInt(0);
 var display_score = document.querySelectorAll(".player-sco");
 display_score[0].innerText +=  score;
 display_score[1].innerText +=  score;
-var check_boxes = ["0","1","2","3","4","5","6","7","8"];
 
+var check_boxes = ["0","1","2","3","4","5","6","7","8"];
+// human player fnx
 function humanPlay(human){
    var humanId = document.getElementById(human.target.id);
    if(humanId.innerHTML === ""){
@@ -115,6 +119,8 @@ function humanPlay(human){
       generateRandomNum()
    }, 1000);
 }
+
+// computer fnx
 
 function generateRandomNum(){
    var items_index;
@@ -136,12 +142,13 @@ function generateRandomNum(){
    }
    humanResults();
 }
-
+// writing game state
 var game_state = document.querySelector(".game-state h1");
+// game results variable
 var result = document.querySelector(".result-statement-area");
 var hide_all_boxes = document.querySelector(".tic-tac-toe-grid");
+// play again fnx
 var get_paying_spot = document.querySelectorAll(".playing-spot");
-
 function playAgain(){
    for (var remove = 0; remove <= get_paying_spot.length; remove++){
       get_paying_spot[remove].innerHTML = "";
@@ -151,7 +158,7 @@ function playAgain(){
       game_state.innerHTML = "GAME ON";
    }
 }
-
+// restart fnx
 function resetAll(){
    for (var remove = 0; remove <= get_paying_spot.length; remove++){
       get_paying_spot[remove].innerHTML = "";
@@ -161,7 +168,7 @@ function resetAll(){
       game_on.style.display = "none";
    }  
 }
-
+// menu fnx
 function backToMenu(){
    for (var remove = 0; remove <= get_paying_spot.length; remove++){
       get_paying_spot[remove].innerHTML = "";
@@ -189,6 +196,7 @@ function backToMenu(){
    }
 }
 
+// results fnx
 function humanResults(){
    var a = document.getElementById("0");
    var b = document.getElementById("1");
