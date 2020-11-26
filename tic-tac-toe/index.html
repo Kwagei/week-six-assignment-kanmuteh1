@@ -44,6 +44,9 @@
                             <p>Please Select Your Character</p>
                             <button onclick="playerCatSelection(event)" class="player-cat" id = "x1">X</button>
                             <button onclick="playerCatSelection(event)" class="player-cat" id = "o1">O</button>
+                            <div class="menu-tic-tac-toe">
+                                <button onclick="backToMenu()"><b>MENU</b></button>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -53,7 +56,11 @@
                             <p>Please Select Your Character</p>
                             <button onclick="playerCatSelection(event)" id = "x1" class="player-cat">X</button>
                             <button onclick="playerCatSelection(event)" id = "o1" class="player-cat">O</button>
+                            <div class="menu-tic-tac-toe">
+                                <button onclick="backToMenu()"><b>MENU</b></button>
+                            </div>
                         </div>
+                        
                     </div>
                     <br>
                     <div class="instruction-box">
@@ -76,6 +83,9 @@
                                     When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
                                 </li>
                             </ol>
+                            <div class="menu-tic-tac-toe">
+                                <button onclick="backToMenu()"><b>MENU</b></button>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -88,13 +98,18 @@
     </div>
     <!-- third page of tic-tac-toe -->
     <div class="game-on-container">
-        <div class="players-scores">
-            <ul>
-                <li class="score"><b>SCORE</b></li>
-                <li class="player-sco"> HUMAN: </li>
-                <br>
-                <li class="player-sco">COMPUTER: </li>
-            </ul>
+        <div class="score-and-menu">
+            <div class="players-scores">
+                <ul>
+                    <li class="score"><b>SCORE</b></li>
+                    <li class="player-sco"> HUMAN: </li>
+                    <br>
+                    <li class="player-sco">COMPUTER: </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <button onclick="backToMenu()"><b>MENU</b></button>
+            </div>
         </div>
         <div class="game-state">
             <h1>GAME ON</h1>

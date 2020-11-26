@@ -159,8 +159,34 @@ function resetAll(){
       result.style.display = "none";
       first_page.style.display = "block";
       game_on.style.display = "none";
-   }
+   }  
+}
+
+function backToMenu(){
+   for (var remove = 0; remove <= get_paying_spot.length; remove++){
+      get_paying_spot[remove].innerHTML = "";
+      check_boxes = ["0","1","2","3","4","5","6","7","8"];
+      result.style.display = "none";
+      tic_tac_toe.style.display = "block";
+      game_on.style.display = "none";
+      hideSinglePlayerItems = document.querySelector(".single-player-items");
+      hideSinglePlayerItems.style.display = "block";
    
+      hideTwoPlayersItems = document.querySelector(".two-players-items");
+      hideTwoPlayersItems.style.display = "block";
+   
+      instructions = document.querySelector(".instruction-box");
+      instructions.style.display = "block";
+
+      var instructions_list = document.querySelector(".instructions-list");
+      instructions_list.style.display = "none";
+
+      var displaySinglePlayerCat = document.querySelector(".single-player-characters");
+      displaySinglePlayerCat.style.display = "none";
+
+      var displayTwoPlayersCat = document.querySelector(".two-players-characters");
+      displayTwoPlayersCat.style.display = "none";
+   }
 }
 
 function humanResults(){

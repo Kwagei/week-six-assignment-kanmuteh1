@@ -157,6 +157,40 @@ body{
     box-sizing: border-box;
  }
 
+.score-and-menu{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu{
+    margin-top: 5%;
+    margin-right: 6%;
+    width: 20%;
+}
+
+.menu button{
+    background-color: blue;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    border: 1px solid blue;
+    padding: 1.5% 8% 1.5% 8%
+}
+
+.menu-tic-tac-toe {
+    width: 100%;
+    text-align: center;
+}
+
+.menu-tic-tac-toe button{
+    margin-top: 5%;
+    background-color: blue;
+    width: 30%;
+    color: white;
+    border: 1px solid blue;
+    padding: 1% 8% 1% 8%
+}
 
 .players-scores ul {
     list-style-type: none;
