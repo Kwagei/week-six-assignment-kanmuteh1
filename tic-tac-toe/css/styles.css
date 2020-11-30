@@ -11,6 +11,27 @@ body{
     box-sizing: border-box;
 }
 
+@media only screen and (max-width: 500px) {
+    body{
+        width: 100%;
+        margin: 0px;
+    }
+
+    .first-page{
+        margin-left: 0%;
+        width: 100%;
+        height: 636px;
+    }
+
+    .img-tic-tac-toe img{
+        padding-top: 5%;
+        width: 100%;
+        height: 50%;
+        border-radius: 100%;
+    }
+    
+}
+
 .img-tic-tac-toe{
     text-align: center;
     width: 100%;
@@ -87,6 +108,16 @@ body{
  }
 
 
+@media only screen and (max-width: 500px) {
+    .tic-tac-toe-intro-container{
+        margin-left: 0;
+        background-color: skyblue;
+        width: 100%;
+        height: 636px;
+        box-sizing: border-box;
+    }
+}
+
 .game-head{
     padding-top: 2%;
     text-align: center;
@@ -157,6 +188,15 @@ body{
     box-sizing: border-box;
  }
 
+ @media only screen and (max-width: 500px) {
+    .game-on-container{
+        margin-left: 0%;
+        background-color: skyblue;
+        width: 100%;
+        height: 636px;
+     }
+}
+
 .score-and-menu{
     width: 100%;
     display: flex;
@@ -206,6 +246,7 @@ body{
 }
 
 .game-state{
+    margin-top: -6%;
     text-align: center;
 }
 
@@ -223,7 +264,6 @@ body{
 }
 
 .tic-tac-toe-grid{
-    margin-top: -2%;
     text-align: center;
     width: 90%;
     height: 50%;
@@ -233,7 +273,7 @@ body{
 }
 
 .playing-spot{
-    margin-top: 2%;
+    /* margin-top: 2%; */
     margin-bottom: 2%;
     margin-left: 16%;
     width: 100%;

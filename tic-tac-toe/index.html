@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
 </head>
-<body onload="move()">
+<body>
     <!-- first page of tic-tac-toe -->
     <div class="first-page">
         <div class="img-tic-tac-toe">
@@ -102,9 +102,11 @@
             <div class="players-scores">
                 <ul>
                     <li class="score"><b>SCORE</b></li>
-                    <li class="player-sco"> HUMAN: </li>
+                    <li> HUMAN: <span id="human-score">0</span></li>
                     <br>
-                    <li class="player-sco">COMPUTER: </li>
+                    <li>COMPUTER: <span id="computer-score">0</span></li>
+                    <br>
+                    <li>DRAW: <SPan id="draw">0</SPan></li>
                 </ul>
             </div>
             <div class="menu">
