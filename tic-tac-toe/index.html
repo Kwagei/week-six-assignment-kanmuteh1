@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
 </head>
 <body>
-    <!-- first page of tic-tac-toe -->
+    <!-- first page of tic-tac_toe hideSingle And TwoPlayers -->
     <div class="first-page">
         <div class="img-tic-tac-toe">
             <img src="./image/tic-tac-toe.jpg" alt="">
@@ -18,15 +18,10 @@
                 <i class="fas fa-gamepad" id="game-icon"></i>
                 <p><b>JT-SOLVE IT</b></p>
             </div>
-            <div id="myProgress">
-                <div id="myBar"></div>
-            </div>
-            <div id="my-progess-percentage">
-            </div>
         </div>
         <br>
         <div id="move-to-next-page">
-                <button  id="next-page-btn" onclick="moveToNextPage()">Continue</button>
+                <button  id="next-page-btn" onclick="moveToNextPage()">NEXT</button>
         </div> 
     </div>
     <!-- second page of tic-tac-toe -->
@@ -39,7 +34,7 @@
             <ul>
                 <li>
                     <div class="single-player-items">
-                        <button id="single-player" onclick="hideTwoPlayersItems()"><b>Single Player</b></button>
+                        <button id= "single_player1" onclick = "wayToPlay(event)"><b>Single Player</b></button>
                         <div class="single-player-characters" >
                             <p>Please Select Your Character</p>
                             <button onclick="playerCatSelection(event)" class="player-cat" id = "x1">X</button>
@@ -51,7 +46,7 @@
                     </div>
                     <br>
                     <div class="two-players-items">
-                        <button id="two-players" onclick="hideSinglePlayerItems()"><b>Two Players</b></button>
+                        <button id="two_players1" onclick = "wayToPlay(event)"><b>Two Players</b></button>
                         <div class="two-players-characters">
                             <p>Please Select Your Character</p>
                             <button onclick="playerCatSelection(event)" id = "x1" class="player-cat">X</button>
@@ -64,7 +59,7 @@
                     </div>
                     <br>
                     <div class="instruction-box">
-                        <button id="instruction" onclick="hideSingleAndTwoPlayers()"><b>INSTRUCTION</b></button>
+                        <button id="instruction" onclick="showInstructionsItemsOnly()"><b>INSTRUCTION</b></button>
                         <div class="instructions-list">
                             <ol>
                                 <li>
@@ -118,6 +113,9 @@
         </div>
 
         <div class="result-statement-area">
+            <span id="human-score">0</span>
+            <span id="computer-score">0</span>
+            <SPan id="draw">0</SPan>
         </div>
 
         <div class="tic-tac-toe-grid">

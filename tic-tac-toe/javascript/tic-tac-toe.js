@@ -3,65 +3,65 @@ var tic_tac_toe = document.querySelector(".tic-tac-toe-intro-container");
 var game_on = document.querySelector(".game-on-container");
 var first_page = document.querySelector(".first-page");
 var game_end = false;
-// setting scores for both players
+// selecting player character
+var human_name;
+var computer_name;
+// setting  scores for both players
 var human_score = 0;
-var human_score_display = document.getElementById("human-score");
 var computer_score = 0;
-var computer_score_display = document.getElementById("computer-score");
 var draw = 0;
+var human_score_display = document.getElementById("human-score");
+var computer_score_display = document.getElementById("computer-score");
 var draw_display = document.getElementById("draw");
-var hideSinglePlayer; 
-var hideTwoPlayers;
-var instructions;
-var nextPageBtn = document.getElementById("move-to-next-page");
-nextPageBtn.style.visibility = "visible";
-// continue btn fnx
+// player choice to play in a way and instruction variable
+var single_player = document.querySelector(".single-player-items"); 
+var two_players = document.querySelector(".two-players-items");
+var instructions = document.querySelector(".instruction-box");
+// selected choices variable
+var instructions_list = document.querySelector(".instructions-list");
+var display_two_players_cat = document.querySelector(".two-players-characters");
+var display_single_player_cat = document.querySelector(".single-player-characters");
+// writing game state
+var game_state = document.querySelector(".game-state h1");
+// game results variable
+var result = document.querySelector(".result-statement-area");
+// playing_spot host div
+var hide_all_boxes = document.querySelector(".tic-tac-toe-grid");
+// play again fnx
+var get_playing_spot = document.querySelectorAll(".playing-spot");
+// players foot print
+var check_boxes = ["0","1","2","3","4","5","6","7","8"];
+//next page btn fnx
 function moveToNextPage(){
    first_page.style.display = "none";
    tic_tac_toe.style.display = "block";
 }
 
-//  tic-tac-toe js
-function hideTwoPlayersItems(){
-   hideTwoPlayers = document.querySelector(".two-players-items");
-   hideTwoPlayers.style.display = "none";
+var num_of_player = 0;
 
-   instructions = document.querySelector(".instruction-box");
+// show only single player properties and hide two-players and instructions btns
+function wayToPlay(select){
+  if (select.target.id === "single_player1"){
+   num_of_player = 1;
+   two_players.style.display = "none";
    instructions.style.display = "none";
-
-   var displaySinglePlayerCat = document.querySelector(".single-player-characters");
-   displaySinglePlayerCat.style.display = "block";
-}
-
-function hideSinglePlayerItems(){
-   hideSinglePlayer = document.querySelector(".single-player-items");
-   hideSinglePlayer.style.display = "none";
-
-   instructions = document.querySelector(".instruction-box");
+   display_single_player_cat.style.display = "block";
+  }
+   
+  else if(select.target.id === "two_players1"){
+   single_player.style.display = "none";
    instructions.style.display = "none";
-
-   var displayTwoPlayersCat = document.querySelector(".two-players-characters");
-   displayTwoPlayersCat.style.display = "block";
+   display_two_players_cat.style.display = "block";
+  }
 }
-
-function hideSingleAndTwoPlayers(){
-   hideSinglePlayer = document.querySelector(".single-player-items");
-   hideSinglePlayer.style.display = "none";
-
-   hideTwoPlayers = document.querySelector(".two-players-items");
-   hideTwoPlayers.style.display = "none";
-
-   instructions = document.querySelector(".instruction-box");
-   instructions.style.display = "block";
-
-   var instructions_list = document.querySelector(".instructions-list");
+// show only inttructions and hide single and two players properties
+function showInstructionsItemsOnly(){
+   single_player.style.display = "none";
+   two_players.style.display = "none";
    instructions_list.style.display = "block";
 }
-//  game-on js
 
 // selecting player character
-var human_name;
-var computer_name;
 function playerCatSelection(select){
    human_name = document.getElementById(select.target.id).innerHTML;
    if(human_name === "X"){
@@ -75,10 +75,6 @@ function playerCatSelection(select){
    game_on.style.display = "block";
 }
 
-// // display_score[0].innerText +=  score;
-// display_score[1].innerText +=  score;
-
-var check_boxes = ["0","1","2","3","4","5","6","7","8"];
 // human player fnx
 function humanPlay(human){
    var humanId = document.getElementById(human.target.id);
@@ -86,12 +82,33 @@ function humanPlay(human){
       humanId.innerHTML = human_name;
       var items_index1 = check_boxes.indexOf(humanId.id).toString();
       check_boxes.splice(items_index1,1);
-      humanResults();
-      if(game_end === false){
-      setTimeout(() =>{
-         generateRandomNum()
-      }, 1000);
-   }
+      results();
+      if (num_of_player === 1){
+         if(game_end === false){
+               setTimeout(() =>{
+               generateRandomNum()
+            }, 1000);
+         }
+      }
+      else{
+         get_playing_spot.forEach(ele=>{
+            document.getElementById(ele.id).setAttribute("onclick","humanPlay2(event)")
+         })
+      }
+
+   } 
+}
+
+function humanPlay2(human2){
+   get_playing_spot.forEach(ele=>{
+      document.getElementById(ele.id).setAttribute("onclick","humanPlay(event)")
+   })
+   var humanId = document.getElementById(human2.target.id);
+   if(humanId.innerHTML === ""){
+      humanId.innerHTML = computer_name;
+      var items_index2 = check_boxes.indexOf(humanId.id).toString();
+      check_boxes.splice(items_index2,1);
+      results();  
    } 
 }
 
@@ -115,18 +132,12 @@ function generateRandomNum(){
    
       return
    }
-   humanResults();
+   results();
 }
-// writing game state
-var game_state = document.querySelector(".game-state h1");
-// game results variable
-var result = document.querySelector(".result-statement-area");
-var hide_all_boxes = document.querySelector(".tic-tac-toe-grid");
-// play again fnx
-var get_paying_spot = document.querySelectorAll(".playing-spot");
+
 function playAgain(){
-   for (var remove1 = 0; remove1 <= get_paying_spot.length; remove1++){
-      get_paying_spot[remove1].innerHTML = "";
+   for (var remove1 = 0; remove1 < get_playing_spot.length; remove1++){
+      get_playing_spot[remove1].innerHTML = "";
       check_boxes = ["0","1","2","3","4","5","6","7","8"];
       result.style.display = "none";
       hide_all_boxes.style.display = "grid";
@@ -136,48 +147,27 @@ function playAgain(){
 }
 // restart fnx
 function resetAll(){
-   for (var remove = 0; remove <= get_paying_spot.length; remove++){
-      get_paying_spot[remove].innerHTML = "";
-      check_boxes = ["0","1","2","3","4","5","6","7","8"];
-      result.style.display = "none";
-      first_page.style.display = "block";
-      game_on.style.display = "none";
-      game_end = false;
-      human_score = 0;
-      computer_score = 0;
-   }  
+   window.location.reload();
 }
 // menu fnx
 function backToMenu(){
-   for (var remove = 0; remove <= get_paying_spot.length; remove++){
-      get_paying_spot[remove].innerHTML = "";
+   for (var remove = 0; remove < get_playing_spot.length; remove++){
+      get_playing_spot[remove].innerHTML = "";
       check_boxes = ["0","1","2","3","4","5","6","7","8"];
       result.style.display = "none";
       tic_tac_toe.style.display = "block";
       game_on.style.display = "none";
-
-      hideSinglePlayer = document.querySelector(".single-player-items");
-      hideSinglePlayer.style.display = "block";
-   
-      hideTwoPlayers = document.querySelector(".two-players-items");
-      hideTwoPlayers.style.display = "block";
-   
-      instructions = document.querySelector(".instruction-box");
+      single_player.style.display = "block";
+      two_players.style.display = "block";
       instructions.style.display = "block";
-
-      var instructions_list = document.querySelector(".instructions-list");
-      instructions_list.style.display = "none";
-
-      var displaySinglePlayerCat = document.querySelector(".single-player-characters");
-      displaySinglePlayerCat.style.display = "none";
-
-      var displayTwoPlayersCat = document.querySelector(".two-players-characters");
-      displayTwoPlayersCat.style.display = "none";
+      instructions_list.style.display = "none"
+      display_single_player_cat.style.display = "none";
+      display_two_players_cat.style.display = "none";
    }
 }
 
 // results fnx
-function humanResults(){
+function results(){
    var a = document.getElementById("0");
    var b = document.getElementById("1");
    var c = document.getElementById("2");
@@ -194,7 +184,7 @@ function humanResults(){
       computer_score_display.innerHTML = computer_score;
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN";
+      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(a.innerHTML === human_name && b.innerHTML === human_name && c.innerHTML === human_name){
@@ -204,7 +194,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "YOU WIN";
+      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(d.innerHTML === computer_name && e.innerHTML === computer_name && f.innerHTML === computer_name){
@@ -214,7 +204,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN";
+      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(d.innerHTML === human_name && e.innerHTML === human_name && f.innerHTML === human_name){
@@ -224,7 +214,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "YOU WIN";
+      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(g.innerHTML === computer_name && h.innerHTML === computer_name && i.innerHTML === computer_name){
@@ -234,7 +224,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN";
+      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(g.innerHTML === human_name && h.innerHTML === human_name && i.innerHTML === human_name){
@@ -244,7 +234,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "YOU WIN";
+      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(a.innerHTML === computer_name && d.innerHTML === computer_name && g.innerHTML === computer_name){
@@ -254,7 +244,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN";
+      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(a.innerHTML === human_name && d.innerHTML === human_name && g.innerHTML === human_name){
@@ -264,7 +254,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "YOU WIN";
+      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(b.innerHTML === computer_name && e.innerHTML === computer_name && h.innerHTML === computer_name){
@@ -274,7 +264,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN";
+      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(b.innerHTML === human_name && e.innerHTML === human_name && h.innerHTML === human_name){
@@ -284,7 +274,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "YOU WIN";
+      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(c.innerHTML === computer_name && f.innerHTML === computer_name && i.innerHTML === computer_name){
@@ -294,7 +284,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN";
+      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(c.innerHTML === human_name && f.innerHTML === human_name && i.innerHTML === human_name){
@@ -304,7 +294,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "YOU WIN";
+      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(c.innerHTML === computer_name && e.innerHTML === computer_name && g.innerHTML === computer_name){
@@ -314,7 +304,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN";
+      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(c.innerHTML === human_name && e.innerHTML === human_name && g.innerHTML === human_name){
@@ -324,7 +314,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "YOU WIN";
+      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(a.innerHTML === computer_name && e.innerHTML === computer_name && i.innerHTML === computer_name){
@@ -334,7 +324,7 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN";
+      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(a.innerHTML === human_name && e.innerHTML === human_name && i.innerHTML === human_name){
@@ -344,14 +334,14 @@ function humanResults(){
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
       result.style.display = "block";
-      result.innerHTML = "YOU WIN";
+      result.innerHTML = "YOU WIN <br>" + human_score;
    }
    else{
       var draw_check = 9;
       
-      for(var boxes = 0; boxes < get_paying_spot.length; boxes++){
+      for(var boxes = 0; boxes < get_playing_spot.length; boxes++){
          
-         if(get_paying_spot[boxes].innerText !== ""){
+         if(get_playing_spot[boxes].innerText !== ""){
             draw_check -= 1;
          }
       }
@@ -362,7 +352,7 @@ function humanResults(){
          game_state.innerHTML = "GAME OVER";
          hide_all_boxes.style.display = "none";
          result.style.display = "block";
-         result.innerHTML = "GAME DRAW";
+         result.innerHTML = "GAME DRAW <br>" + draw++;
       }
    }
 }

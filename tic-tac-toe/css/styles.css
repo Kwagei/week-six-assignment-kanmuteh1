@@ -60,28 +60,6 @@ body{
     color: blue;
 }
 
-/* w3school progress bar modification for trial purpose */
-#myProgress {
-    margin-left: 25%;
-    border-radius: 10%;
-    width: 50%;
-    background-color: #ddd;
-    text-align: center;
-  }
-  
-  #myBar {
-    width: 1%;
-    height: 10px;
-    background-color: lightgreen;
-}
-
-#my-progess-percentage{
-    text-align: center;
-    width: 100%;
-    font-size: 15PX;
-    color: white;
-}
-
 #move-to-next-page{
     width: 100%;
     text-align: center;
@@ -286,6 +264,12 @@ body{
     padding-top: 10%;
     width: 100%;
     text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .restart{
+       padding-top: 15%;
+    }
 }
 
 .restart button{
