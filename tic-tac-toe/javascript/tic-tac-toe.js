@@ -352,7 +352,7 @@ function results(){
          game_state.innerHTML = "GAME OVER";
          hide_all_boxes.style.display = "none";
          result.style.display = "block";
-         result.innerHTML = "GAME DRAW <br>" + draw++;
+         result.innerHTML = "GAME DRAW <br>" + draw;
       }
    }
 }
