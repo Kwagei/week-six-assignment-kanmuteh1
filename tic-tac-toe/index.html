@@ -34,7 +34,7 @@
             <ul>
                 <li>
                     <div class="single-player-items">
-                        <button id= "single_player1" onclick = "wayToPlay(event)"><b>Single Player</b></button>
+                        <button id= "single_player1" onclick = "wayToPlay(event)">SINGLE PLAYER</button>
                         <div class="single-player-characters" >
                             <p>Please Select Your Character</p>
                             <button onclick="playerCatSelection(event)" class="player-cat" id = "x1">X</button>
@@ -46,7 +46,7 @@
                     </div>
                     <br>
                     <div class="two-players-items">
-                        <button id="two_players1" onclick = "wayToPlay(event)"><b>Two Players</b></button>
+                        <button id="two_players1" onclick = "wayToPlay(event)">TWO PLAYERS</button>
                         <div class="two-players-characters">
                             <p>Please Select Your Character</p>
                             <button onclick="playerCatSelection(event)" id = "x1" class="player-cat">X</button>
@@ -97,9 +97,9 @@
             <div class="players-scores">
                 <ul>
                     <li class="score"><b>SCORE</b></li>
-                    <li> HUMAN: <span id="human-score">0</span></li>
-                    <li>COMPUTER: <span id="computer-score">0</span></li>
-                    <li>DRAW: <SPan id="draw">0</SPan></li>
+                    <li id="human-score"></li>
+                    <li id="computer-score"></li>
+                    <li id="draw"></li>
                 </ul>
             </div>
             <div class="menu">

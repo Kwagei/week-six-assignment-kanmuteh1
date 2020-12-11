@@ -31,24 +31,29 @@ var hide_all_boxes = document.querySelector(".tic-tac-toe-grid");
 var get_playing_spot = document.querySelectorAll(".playing-spot");
 // players foot print
 var check_boxes = ["0","1","2","3","4","5","6","7","8"];
+// variable to decide on single or double player
+var num_of_player = 0;
 //next page btn fnx
 function moveToNextPage(){
    first_page.style.display = "none";
    tic_tac_toe.style.display = "block";
 }
-
-var num_of_player = 0;
-
 // show only single player properties and hide two-players and instructions btns
 function wayToPlay(select){
   if (select.target.id === "single_player1"){
    num_of_player = 1;
+   human_score_display.innerHTML = "HUMAN: " + human_score;
+   computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+   draw_display.innerHTML = "DRAW: "+ draw;
    two_players.style.display = "none";
    instructions.style.display = "none";
    display_single_player_cat.style.display = "block";
   }
    
   else if(select.target.id === "two_players1"){
+   human_score_display.innerHTML = "PLAYER 1: " + human_score;
+   computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+   draw_display.innerHTML = "DRAW: "+ draw;
    single_player.style.display = "none";
    instructions.style.display = "none";
    display_two_players_cat.style.display = "block";
@@ -74,8 +79,7 @@ function playerCatSelection(select){
    tic_tac_toe.style.display = "none";
    game_on.style.display = "block";
 }
-
-// human player fnx
+// first xhuman player fnx
 function humanPlay(human){
    var humanId = document.getElementById(human.target.id);
    if(humanId.innerHTML === ""){
@@ -98,7 +102,7 @@ function humanPlay(human){
 
    } 
 }
-
+// second human player fnx
 function humanPlay2(human2){
    get_playing_spot.forEach(ele=>{
       document.getElementById(ele.id).setAttribute("onclick","humanPlay(event)")
@@ -111,9 +115,7 @@ function humanPlay2(human2){
       results();  
    } 
 }
-
 // computer fnx
-
 function generateRandomNum(){
    var items_index;
    var computer_selection = Math.floor(Math.random()*8);
@@ -134,7 +136,7 @@ function generateRandomNum(){
    }
    results();
 }
-
+// to start a new game
 function playAgain(){
    for (var remove1 = 0; remove1 < get_playing_spot.length; remove1++){
       get_playing_spot[remove1].innerHTML = "";
@@ -181,161 +183,291 @@ function results(){
    if(a.innerHTML === computer_name && b.innerHTML === computer_name && c.innerHTML === computer_name){
       game_end = true;
       computer_score++;
-      computer_score_display.innerHTML = computer_score;
+      if(num_of_player === 1){
+         computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + computer_score;
+      }
+
+      else{
+         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+      }
+      game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(a.innerHTML === human_name && b.innerHTML === human_name && c.innerHTML === human_name){
       game_end = true;
       human_score++;
-      human_score_display.innerHTML = human_score;
+      if(num_of_player === 1){
+         human_score_display.innerHTML = "HUMAN: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + human_score;
+      }
+
+      else{
+         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(d.innerHTML === computer_name && e.innerHTML === computer_name && f.innerHTML === computer_name){
       game_end = true;
       computer_score++;
-      computer_score_display.innerHTML = computer_score;
+      if(num_of_player === 1){
+         computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + computer_score;
+      }
+
+      else{
+         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(d.innerHTML === human_name && e.innerHTML === human_name && f.innerHTML === human_name){
       game_end = true;
       human_score++;
-      human_score_display.innerHTML = human_score;
+      if(num_of_player === 1){
+         human_score_display.innerHTML = "HUMAN: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + human_score;
+      }
+
+      else{
+         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(g.innerHTML === computer_name && h.innerHTML === computer_name && i.innerHTML === computer_name){
       game_end = true;
       computer_score++;
-      computer_score_display.innerHTML = computer_score;
+      if(num_of_player === 1){
+         computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + computer_score;
+      }
+
+      else{
+         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(g.innerHTML === human_name && h.innerHTML === human_name && i.innerHTML === human_name){
       game_end = true;
       human_score++;
-      human_score_display.innerHTML = human_score;
+      if(num_of_player === 1){
+         human_score_display.innerHTML = "HUMAN: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + human_score;
+      }
+
+      else{
+         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(a.innerHTML === computer_name && d.innerHTML === computer_name && g.innerHTML === computer_name){
       game_end = true;
       computer_score++;
-      computer_score_display.innerHTML = computer_score;
+      if(num_of_player === 1){
+         computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + computer_score;
+      }
+
+      else{
+         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(a.innerHTML === human_name && d.innerHTML === human_name && g.innerHTML === human_name){
       game_end = true;
       human_score++;
-      human_score_display.innerHTML = human_score;
+      if(num_of_player === 1){
+         human_score_display.innerHTML = "HUMAN: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + human_score;
+      }
+
+      else{
+         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(b.innerHTML === computer_name && e.innerHTML === computer_name && h.innerHTML === computer_name){
       game_end = true;
       computer_score++;
-      computer_score_display.innerHTML = computer_score;
+      if(num_of_player === 1){
+         computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + computer_score;
+      }
+
+      else{
+         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(b.innerHTML === human_name && e.innerHTML === human_name && h.innerHTML === human_name){
       game_end = true;
       human_score++;
-      human_score_display.innerHTML = human_score;
+      if(num_of_player === 1){
+         human_score_display.innerHTML = "HUMAN: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + human_score;
+      }
+
+      else{
+         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(c.innerHTML === computer_name && f.innerHTML === computer_name && i.innerHTML === computer_name){
       game_end = true;
       computer_score++;
-      computer_score_display.innerHTML = computer_score;
+      if(num_of_player === 1){
+         computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + computer_score;
+      }
+
+      else{
+         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(c.innerHTML === human_name && f.innerHTML === human_name && i.innerHTML === human_name){
       game_end = true;
       human_score++;
-      human_score_display.innerHTML = human_score;
+      if(num_of_player === 1){
+         human_score_display.innerHTML = "HUMAN: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + human_score;
+      }
+
+      else{
+         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(c.innerHTML === computer_name && e.innerHTML === computer_name && g.innerHTML === computer_name){
       game_end = true;
       computer_score++;
-      computer_score_display.innerHTML = computer_score;
+      if(num_of_player === 1){
+         computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + computer_score;
+      }
+
+      else{
+         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(c.innerHTML === human_name && e.innerHTML === human_name && g.innerHTML === human_name){
       game_end = true;
       human_score++;
-      human_score_display.innerHTML = human_score;
+      if(num_of_player === 1){
+         human_score_display.innerHTML = "HUMAN: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + human_score;
+      }
+
+      else{
+         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "YOU WIN <br>" + human_score;
    }
 
    else if(a.innerHTML === computer_name && e.innerHTML === computer_name && i.innerHTML === computer_name){
       game_end = true;
       computer_score++;
-      computer_score_display.innerHTML = computer_score;
+      if(num_of_player === 1){
+         computer_score_display.innerHTML = "COMPUTER: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + computer_score;
+      }
+
+      else{
+         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "COMPUTER WIN <br>" + computer_score;
    }
 
    else if(a.innerHTML === human_name && e.innerHTML === human_name && i.innerHTML === human_name){
       game_end = true;
       human_score++;
-      human_score_display.innerHTML = human_score;
+      if(num_of_player === 1){
+         human_score_display.innerHTML = "HUMAN: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "YOU WIN <br>" + human_score;
+      }
+
+      else{
+         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         result.style.display = "block";
+         result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
+      }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
-      result.style.display = "block";
-      result.innerHTML = "YOU WIN <br>" + human_score;
    }
+
    else{
       var draw_check = 9;
       
@@ -348,7 +480,7 @@ function results(){
 
       if(draw_check === 0){
          draw++;
-         draw_display.innerHTML = draw;
+         draw_display.innerHTML = "DRAW: "+ draw;
          game_state.innerHTML = "GAME OVER";
          hide_all_boxes.style.display = "none";
          result.style.display = "block";
