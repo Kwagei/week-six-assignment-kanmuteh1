@@ -84,13 +84,17 @@ function humanPlay(human){
    var humanId = document.getElementById(human.target.id);
    if(humanId.innerHTML === ""){
       humanId.innerHTML = human_name;
+      for (human = 0; human < get_playing_spot.length; human++){
+        console.log(get_playing_spot[human]);
+         get_playing_spot[human].style.pointerEvents = 'none';
+      }
       var items_index1 = check_boxes.indexOf(humanId.id).toString();
       check_boxes.splice(items_index1,1);
       results();
       if (num_of_player === 1){
          if(game_end === false){
                setTimeout(() =>{
-               generateRandomNum()
+               generateRandomNum();
             }, 1000);
          }
       }
@@ -126,6 +130,11 @@ function generateRandomNum(){
       items_index = check_boxes.indexOf(computer_player.id);
       check_boxes.splice(items_index,1);
 
+      for (let human = 0; human < get_playing_spot.length; human++){
+         console.log(get_playing_spot[human]);
+          get_playing_spot[human].removeAttribute("style");
+       }
+
    }
    else{
       if(check_boxes.length > 0){
@@ -146,6 +155,11 @@ function playAgain(){
       game_state.innerHTML = "GAME ON";
       game_end = false
    }
+
+   for (let human = 0; human < get_playing_spot.length; human++){
+      console.log(get_playing_spot[human]);
+       get_playing_spot[human].removeAttribute("style");
+    }
 }
 // restart fnx
 function resetAll(){
@@ -186,7 +200,7 @@ function results(){
       if(num_of_player === 1){
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
-         result.innerHTML = "YOU WIN <br>" + computer_score;
+         result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
@@ -222,7 +236,7 @@ function results(){
       if(num_of_player === 1){
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
-         result.innerHTML = "YOU WIN <br>" + computer_score;
+         result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
@@ -258,7 +272,7 @@ function results(){
       if(num_of_player === 1){
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
-         result.innerHTML = "YOU WIN <br>" + computer_score;
+         result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
@@ -294,7 +308,7 @@ function results(){
       if(num_of_player === 1){
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
-         result.innerHTML = "YOU WIN <br>" + computer_score;
+         result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
@@ -330,7 +344,7 @@ function results(){
       if(num_of_player === 1){
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
-         result.innerHTML = "YOU WIN <br>" + computer_score;
+         result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
@@ -366,7 +380,7 @@ function results(){
       if(num_of_player === 1){
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
-         result.innerHTML = "YOU WIN <br>" + computer_score;
+         result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
@@ -402,7 +416,7 @@ function results(){
       if(num_of_player === 1){
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
-         result.innerHTML = "YOU WIN <br>" + computer_score;
+         result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
@@ -438,7 +452,7 @@ function results(){
       if(num_of_player === 1){
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
-         result.innerHTML = "YOU WIN <br>" + computer_score;
+         result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
