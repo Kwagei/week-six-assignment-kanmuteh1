@@ -6,10 +6,15 @@ var game_end = false;
 // selecting player character
 var human_name;
 var computer_name;
-// setting  scores for both players
+// setting  scores for single player
 var human_score = 0;
 var computer_score = 0;
 var draw = 0;
+
+var player1_score = 0;
+var player2_score = 0;
+var draw2 = 0;
+// setting  scores for two player
 var human_score_display = document.getElementById("human-score");
 var computer_score_display = document.getElementById("computer-score");
 var draw_display = document.getElementById("draw");
@@ -51,9 +56,9 @@ function wayToPlay(select){
   }
    
   else if(select.target.id === "two_players1"){
-   human_score_display.innerHTML = "PLAYER 1: " + human_score;
-   computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
-   draw_display.innerHTML = "DRAW: "+ draw;
+   human_score_display.innerHTML = "PLAYER 1: " + player1_score;
+   computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
+   draw_display.innerHTML = "DRAW: "+ draw2;
    single_player.style.display = "none";
    instructions.style.display = "none";
    display_two_players_cat.style.display = "block";
@@ -84,14 +89,14 @@ function humanPlay(human){
    var humanId = document.getElementById(human.target.id);
    if(humanId.innerHTML === ""){
       humanId.innerHTML = human_name;
-      for (human = 0; human < get_playing_spot.length; human++){
-        console.log(get_playing_spot[human]);
-         get_playing_spot[human].style.pointerEvents = 'none';
-      }
       var items_index1 = check_boxes.indexOf(humanId.id).toString();
       check_boxes.splice(items_index1,1);
       results();
       if (num_of_player === 1){
+         for (human = 0; human < get_playing_spot.length; human++){
+            console.log(get_playing_spot[human]);
+             get_playing_spot[human].style.pointerEvents = 'none';
+          }
          if(game_end === false){
                setTimeout(() =>{
                generateRandomNum();
@@ -196,17 +201,18 @@ function results(){
 
    if(a.innerHTML === computer_name && b.innerHTML === computer_name && c.innerHTML === computer_name){
       game_end = true;
-      computer_score++;
       if(num_of_player === 1){
+         computer_score++;
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
          result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
-         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         player2_score++;
+         computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          result.style.display = "block";
-         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+         result.innerHTML = "PLAYER 2 WIN <br>" + player2_score;
       }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
@@ -214,15 +220,16 @@ function results(){
 
    else if(a.innerHTML === human_name && b.innerHTML === human_name && c.innerHTML === human_name){
       game_end = true;
-      human_score++;
       if(num_of_player === 1){
+         human_score++;
          human_score_display.innerHTML = "HUMAN: " + human_score;
          result.style.display = "block";
          result.innerHTML = "YOU WIN <br>" + human_score;
       }
 
       else{
-         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         player1_score++;
+         human_score_display.innerHTML = "PLAYER 1: " + player1_score;
          result.style.display = "block";
          result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
       }
@@ -232,17 +239,18 @@ function results(){
 
    else if(d.innerHTML === computer_name && e.innerHTML === computer_name && f.innerHTML === computer_name){
       game_end = true;
-      computer_score++;
       if(num_of_player === 1){
+         computer_score++;
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
          result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
-         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         player2_score++;
+         computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          result.style.display = "block";
-         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+         result.innerHTML = "PLAYER 2 WIN <br>" + player2_score;
       }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
@@ -250,15 +258,16 @@ function results(){
 
    else if(d.innerHTML === human_name && e.innerHTML === human_name && f.innerHTML === human_name){
       game_end = true;
-      human_score++;
       if(num_of_player === 1){
+         human_score++;
          human_score_display.innerHTML = "HUMAN: " + human_score;
          result.style.display = "block";
          result.innerHTML = "YOU WIN <br>" + human_score;
       }
 
       else{
-         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         player1_score++;
+         human_score_display.innerHTML = "PLAYER 1: " + player1_score;
          result.style.display = "block";
          result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
       }
@@ -268,17 +277,18 @@ function results(){
 
    else if(g.innerHTML === computer_name && h.innerHTML === computer_name && i.innerHTML === computer_name){
       game_end = true;
-      computer_score++;
       if(num_of_player === 1){
+         computer_score++;
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
          result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
-         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         player2_score++;
+         computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          result.style.display = "block";
-         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+         result.innerHTML = "PLAYER 2 WIN <br>" + player2_score;
       }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
@@ -286,15 +296,16 @@ function results(){
 
    else if(g.innerHTML === human_name && h.innerHTML === human_name && i.innerHTML === human_name){
       game_end = true;
-      human_score++;
       if(num_of_player === 1){
+         human_score++;
          human_score_display.innerHTML = "HUMAN: " + human_score;
          result.style.display = "block";
          result.innerHTML = "YOU WIN <br>" + human_score;
       }
 
       else{
-         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         player1_score++;
+         human_score_display.innerHTML = "PLAYER 1: " + player1_score;
          result.style.display = "block";
          result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
       }
@@ -304,17 +315,18 @@ function results(){
 
    else if(a.innerHTML === computer_name && d.innerHTML === computer_name && g.innerHTML === computer_name){
       game_end = true;
-      computer_score++;
       if(num_of_player === 1){
+         computer_score++;
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
          result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
-         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         player2_score++;
+         computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          result.style.display = "block";
-         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+         result.innerHTML = "PLAYER 2 WIN <br>" + player2_score;
       }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
@@ -322,15 +334,16 @@ function results(){
 
    else if(a.innerHTML === human_name && d.innerHTML === human_name && g.innerHTML === human_name){
       game_end = true;
-      human_score++;
       if(num_of_player === 1){
+         human_score++;
          human_score_display.innerHTML = "HUMAN: " + human_score;
          result.style.display = "block";
          result.innerHTML = "YOU WIN <br>" + human_score;
       }
 
       else{
-         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         player1_score++;
+         human_score_display.innerHTML = "PLAYER 1: " + player1_score;
          result.style.display = "block";
          result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
       }
@@ -340,17 +353,18 @@ function results(){
 
    else if(b.innerHTML === computer_name && e.innerHTML === computer_name && h.innerHTML === computer_name){
       game_end = true;
-      computer_score++;
       if(num_of_player === 1){
+         computer_score++;
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
          result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
-         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         player2_score++;
+         computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          result.style.display = "block";
-         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+         result.innerHTML = "PLAYER 2 WIN <br>" + player2_score;
       }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
@@ -358,15 +372,16 @@ function results(){
 
    else if(b.innerHTML === human_name && e.innerHTML === human_name && h.innerHTML === human_name){
       game_end = true;
-      human_score++;
       if(num_of_player === 1){
+         human_score++;
          human_score_display.innerHTML = "HUMAN: " + human_score;
          result.style.display = "block";
          result.innerHTML = "YOU WIN <br>" + human_score;
       }
 
       else{
-         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         player1_score++;
+         human_score_display.innerHTML = "PLAYER 1: " + player1_score;
          result.style.display = "block";
          result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
       }
@@ -376,17 +391,18 @@ function results(){
 
    else if(c.innerHTML === computer_name && f.innerHTML === computer_name && i.innerHTML === computer_name){
       game_end = true;
-      computer_score++;
       if(num_of_player === 1){
+         computer_score++;
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
          result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
-         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         player2_score++;
+         computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          result.style.display = "block";
-         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+         result.innerHTML = "PLAYER 2 WIN <br>" + player2_score;
       }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
@@ -394,15 +410,16 @@ function results(){
 
    else if(c.innerHTML === human_name && f.innerHTML === human_name && i.innerHTML === human_name){
       game_end = true;
-      human_score++;
       if(num_of_player === 1){
+         human_score++;
          human_score_display.innerHTML = "HUMAN: " + human_score;
          result.style.display = "block";
          result.innerHTML = "YOU WIN <br>" + human_score;
       }
 
       else{
-         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         player1_score++;
+         human_score_display.innerHTML = "PLAYER 1: " + player1_score;
          result.style.display = "block";
          result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
       }
@@ -412,17 +429,18 @@ function results(){
 
    else if(c.innerHTML === computer_name && e.innerHTML === computer_name && g.innerHTML === computer_name){
       game_end = true;
-      computer_score++;
       if(num_of_player === 1){
+         computer_score++;
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
          result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
-         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         player2_score++;
+         computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          result.style.display = "block";
-         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+         result.innerHTML = "PLAYER 2 WIN <br>" + player2_score;
       }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
@@ -430,15 +448,16 @@ function results(){
 
    else if(c.innerHTML === human_name && e.innerHTML === human_name && g.innerHTML === human_name){
       game_end = true;
-      human_score++;
       if(num_of_player === 1){
+         human_score++;
          human_score_display.innerHTML = "HUMAN: " + human_score;
          result.style.display = "block";
          result.innerHTML = "YOU WIN <br>" + human_score;
       }
 
       else{
-         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         player1_score++;
+         human_score_display.innerHTML = "PLAYER 1: " + player1_score;
          result.style.display = "block";
          result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
       }
@@ -448,17 +467,18 @@ function results(){
 
    else if(a.innerHTML === computer_name && e.innerHTML === computer_name && i.innerHTML === computer_name){
       game_end = true;
-      computer_score++;
       if(num_of_player === 1){
+         computer_score++;
          computer_score_display.innerHTML = "COMPUTER: " + computer_score;
          result.style.display = "block";
          result.innerHTML = "COMPUTER <br>" + computer_score;
       }
 
       else{
-         computer_score_display.innerHTML = "PLAYER 2: " + computer_score;
+         player2_score++;
+         computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          result.style.display = "block";
-         result.innerHTML = "PLAYER 2 WIN <br>" + computer_score;
+         result.innerHTML = "PLAYER 2 WIN <br>" + player2_score;
       }
       game_state.innerHTML = "GAME OVER";
       hide_all_boxes.style.display = "none";
@@ -466,15 +486,16 @@ function results(){
 
    else if(a.innerHTML === human_name && e.innerHTML === human_name && i.innerHTML === human_name){
       game_end = true;
-      human_score++;
       if(num_of_player === 1){
+         human_score++;
          human_score_display.innerHTML = "HUMAN: " + human_score;
          result.style.display = "block";
          result.innerHTML = "YOU WIN <br>" + human_score;
       }
 
       else{
-         human_score_display.innerHTML = "PLAYER 1: " + human_score;
+         player1_score++;
+         human_score_display.innerHTML = "PLAYER 1: " + player1_score;
          result.style.display = "block";
          result.innerHTML = "PLAYER 1 WIN <br>" + human_score;
       }
