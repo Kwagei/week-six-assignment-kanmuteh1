@@ -1,7 +1,6 @@
 body{
     height: 610px;
 }
-
 /* first page of tic-tac-toe */
 .first-page{
     margin-left: 25%;
@@ -57,7 +56,7 @@ body{
     body{
         width: 100%;
         margin: 0px;
-        height: 555px;
+        height: 600px;
     }
 
     .first-page{
@@ -73,9 +72,7 @@ body{
     }
     
 }
-
 /* tic-tac-toe styling */
- 
  .tic-tac-toe-intro-container{
     margin-left: 25%;
     background-color: skyblue;
@@ -135,6 +132,7 @@ body{
     margin-top: 30%;
     color: white;
 }
+
 .icon-tic-tac-toe{
     text-align: center;
     margin-top: 6%;
@@ -155,7 +153,6 @@ body{
         box-sizing: border-box;
     }
 }
-
 /* game-on styling */
  .game-on-container{
     margin-left: 25%;
@@ -164,7 +161,7 @@ body{
     height: 100%;
     display: none;
     box-sizing: border-box;
- }
+}
 
 .score-and-menu{
     width: 100%;
@@ -276,6 +273,6 @@ players-scores ul li{
     }
 
     .restart{
-        padding-top: 22%;
+        padding-top: 18%;
      }
 }
