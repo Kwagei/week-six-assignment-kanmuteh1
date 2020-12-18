@@ -96,12 +96,12 @@ function humanPlay(human){
          if(num_of_player === 1){
             human_score++;
             human_score_display.innerHTML = "HUMAN: " + human_score;
-            checkForPlayer("HUMAN WIN",human_score)
+            checkForPlayer("HUMAN WIN",human_score);
          }
          else{
             human_score++;
             human_score_display.innerHTML = "PLAYER 1: " + human_score;
-            checkForPlayer("PLAYER 1 WIN",human_score)
+            checkForPlayer("PLAYER 1 WIN",human_score);
          }
       }
 
@@ -116,24 +116,26 @@ function humanPlay(human){
          }
       }
        else{
-         get_playing_spot.forEach(ele =>{
-            document.getElementById(ele.id).setAttribute("onclick","humanPlay2(event)")
-         })
+         changePlayer("humanPlay2(event)")
       }
    } 
+}
+// changing player
+function changePlayer (player){
+   get_playing_spot.forEach(ele =>{
+      document.getElementById(ele.id).setAttribute("onclick",player)
+   })
 }
 // second human player fnx
 function humanPlay2(human2){
    var humanId = document.getElementById(human2.target.id);
    if(humanId.innerHTML === ""){
       humanId.innerHTML = computer_name;
-      get_playing_spot.forEach(ele=>{
-         document.getElementById(ele.id).setAttribute("onclick","humanPlay(event)")
-      })
+      changePlayer("humanPlay(event)")
       var items_index2 = check_boxes.indexOf(humanId.id).toString();
       check_boxes.splice(items_index2,1);
-      var get_result = results(computer_name);
-      if(get_result === "win"){
+      var get_results = results(computer_name);
+      if(get_results === "win"){
          player2_score++;
          computer_score_display.innerHTML = "PLAYER 2: " + player2_score;
          checkForPlayer("PLAYER 2 WIN",player2_score)
@@ -177,7 +179,9 @@ function playAgain(){
 
    for (let human = 0; human < get_playing_spot.length; human++){
       get_playing_spot[human].removeAttribute("style");
-    }
+   }
+
+   changePlayer("humanPlay(event)")
 }
 // restart fnx
 function resetAll(){
@@ -216,7 +220,7 @@ function results(winner){
    }else if(get_playing_spot[1].innerHTML === winner && get_playing_spot[4].innerHTML === winner && get_playing_spot[7].innerHTML === winner){
       game_end = true;
       return "win"
-   }else if(get_playing_spot[2].innerHTML === winner && get_playing_spot[5].innerHTML === winner && get_playing_spot[6].innerHTML === winner){
+   }else if(get_playing_spot[2].innerHTML === winner && get_playing_spot[5].innerHTML === winner && get_playing_spot[8].innerHTML === winner){
       game_end = true;
       return "win"
    }else if(get_playing_spot[0].innerHTML === winner && get_playing_spot[4].innerHTML === winner && get_playing_spot[8].innerHTML === winner){
